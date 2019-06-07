@@ -1,0 +1,19 @@
+<div onscroll='scroller("scroller", "scrollme")' style="overflow:scroll; height: 10;" id=scroller>
+	<img src="1x2066.gif" height=1 width=2066 style="width:2066px;">
+</div>
+<div onscroll='scroller("scrollme", "scroller")' style="overflow:scroll; height:300px" id=scrollme>
+	<img src=yourphoto.jpg width=2066 height=1381>
+</div>
+
+<script>
+var arescrolling = 0;
+function scroller(from,to) {
+	if (arescrolling) return; // avoid potential recursion/inefficiency
+	arescrolling = 1;
+	// set the other div's scroll position equal to ours
+	document.getElementById(to).scrollLeft =
+		document.getElementById(from).scrollLeft;
+	arescrolling = 0;
+}
+</script>
+
